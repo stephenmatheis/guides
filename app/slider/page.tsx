@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { CSSProperties, useRef, useState } from 'react';
-import styles from './page.module.scss';
-import classNames from 'classnames';
+import { CSSProperties, useRef, useState } from "react";
+import styles from "./page.module.scss";
+import classNames from "classnames";
+import guides from "@/data/guides";
 
 const animationDuration = 700;
-const cards = [
-    { label: 'Card 0', color: '#FFFFFF' },
-    { label: 'Card 1', color: '#BFBFBF' },
-    { label: 'Card 2', color: '#7F7F7F' },
-    { label: 'Card 3', color: '#3F3F3F' },
-    { label: 'Card 4', color: '#000000' },
-];
+const cards = guides.map((guide) => {
+    return {
+        ...guide,
+        label: guide.name,
+    };
+});
 
 export default function RootPage() {
     const [selected, setSelected] = useState<number>(0);
@@ -21,13 +21,13 @@ export default function RootPage() {
         <div
             style={
                 {
-                    '--animation-duration': `${animationDuration}ms`,
+                    "--animation-duration": `${animationDuration}ms`,
                 } as CSSProperties
             }
             className={styles.slider}
         >
             <div className={styles.box}>
-                {cards.map(({ label, color }, index) => {
+                {cards.map(({ label }, index) => {
                     const position = index - selected - 1;
 
                     return (
@@ -38,8 +38,7 @@ export default function RootPage() {
                             key={index}
                             style={
                                 {
-                                    '--step': position,
-                                    backgroundColor: color,
+                                    "--step": position,
                                 } as CSSProperties
                             }
                             className={classNames(styles.card, {

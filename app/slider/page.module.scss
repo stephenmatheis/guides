@@ -22,22 +22,23 @@
             height: 250px;
             width: 200px;
             border-radius: 32px;
-            background-color: lightseagreen;
+            border: solid 3px black;
+            background-color: #ffffff;
             z-index: 2;
             transition: width var(--animation-duration) ease-in-out,
                 height var(--animation-duration) ease-in-out,
                 transform var(--animation-duration) ease-in-out,
-                border-radius var(--animation-duration) ease-in-out,
-                left var(--animation-duration) ease-in-out;
+                left var(--animation-duration) ease-in-out,
+                border-color var(--animation-duration) ease-in-out;
             transform: translate(calc(50% + (240px * var(--step))), -50%)
                 scale(1);
 
             &.full {
-                width: 100vw;
-                height: 100vh;
+                width: calc(100vw + 6px);
+                height: calc(100vh + 6px);
                 transform: translate(0, -50%);
-                left: 0;
-                border-radius: 0;
+                left: -3px;
+                border-color: transparent;
                 z-index: 1;
             }
         }
