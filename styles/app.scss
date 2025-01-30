@@ -1,0 +1,46 @@
+:root {
+    --font-size: 16.5px;
+    --line-height: 24.75px;
+
+    // Theme
+    --light: whitesmoke;
+    --white: white;
+    --gray: gray;
+    --dark: dimgray;
+    --black: black;
+
+    @media print {
+        --font-size: 11px;
+        --line-height: 16px;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+
+    &::selection {
+        color: var(--black);
+        background-color: var(--white);
+    }
+}
+
+html {
+    background-color: var(--black);
+    color: var(--white);
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--font-space-mono);
+    background-color: var(--black);
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--light);
+    -webkit-tap-highlight-color: transparent;
+}
